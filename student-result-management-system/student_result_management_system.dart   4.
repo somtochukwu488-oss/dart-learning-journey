@@ -1,0 +1,117 @@
+int calculateTotal(List<int> score) {
+  int total = 0;
+
+  for (int i = 0; i < score.length; i++) {
+    total = total + score[i];
+  }
+
+  return total;
+}
+
+double calculateAverage(int total, int numberOfSubjects) {
+  return total / numberOfSubjects;
+}
+
+void main() {
+  String name = 'Sandra';
+  String studentClass = 'SS2';
+
+  List<String> subject = [
+    'Mathematics',
+    'English',
+    'Biology',
+    'Chemistry',
+    'Physics',
+  ];
+
+  List<int> score = [30, 40, 35, 25, 45];
+
+  int totalScore = calculateTotal(score);
+  double averageScore = calculateAverage(totalScore, subject.length);
+  String grade = getGrade(averageScore);
+  String remark = getRemark(averageScore);
+  String result = checkResult(averageScore);
+  displayReport(
+    name: name,
+    studentClass: studentClass,
+    subject: subject,
+    score: score,
+    totalScore: totalScore,
+    averageScore: averageScore,
+    grade: grade,
+    remark: remark,
+    result: result,
+  );
+
+  // print('STUDENT RESULT');
+  // print('============================');
+  // print('Name: $name');
+  // print('Class: $studentClass');
+  // print('Subjects: $subject');
+  // print('Scores: $score');
+  // print('Total Score: $totalScore');
+  // print('Average Score: $averageScore');
+  // print('Grade: $grade');
+  // print('Remark: $remark');
+  // print('Result: $result');
+}
+
+String getGrade(double average) {
+  if (average >= 70) {
+    return 'A';
+  } else if (average >= 60) {
+    return 'B';
+  } else if (average >= 50) {
+    return 'C';
+  } else if (average >= 45) {
+    return 'D';
+  } else {
+    return 'F';
+  }
+}
+
+String getRemark(double average) {
+  if (average >= 70) {
+    return 'Excellent';
+  } else if (average >= 60) {
+    return 'Very Good';
+  } else if (average >= 50) {
+    return 'Good';
+  } else if (average >= 45) {
+    return 'Pass';
+  } else {
+    return 'Fail';
+  }
+}
+
+String checkResult(double average) {
+  if (average >= 45) {
+    return 'Passed';
+  } else {
+    return 'Failed';
+  }
+}
+
+void displayReport({
+  required String name,
+  required String studentClass,
+  required List<String> subject,
+  required List<int> score,
+  required int totalScore,
+  required double averageScore,
+  required String grade,
+  required String remark,
+  required String result,
+}) {
+  print('STUDENT RESULT');
+  print('============================');
+  print('Name: $name');
+  print('Class: $studentClass');
+  print('Subjects: $subject');
+  print('Scores: $score');
+  print('Total Score: $totalScore');
+  print('Average Score: $averageScore');
+  print('Grade: $grade');
+  print('Remark: $remark');
+  print('Result: $result');
+}
